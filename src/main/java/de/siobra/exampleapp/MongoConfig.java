@@ -20,14 +20,13 @@ public class MongoConfig extends AbstractMongoConfiguration{
 	@Override
 	protected String getDatabaseName() {
 		// TODO Auto-generated method stub
-		return databaseName;
+		return "cc_tuOTCqVNyVgS";
 	}
 
 	@Override
 	public Mongo mongo() throws Exception {
 		if(mongoURL != null && !mongoURL.isEmpty()){
 			MongoClient mongoClient = new MongoClient(new MongoClientURI(mongoURL));
-			databaseName = mongoClient.getDatabaseNames().get(0);
 			return mongoClient;
 		}
 	        return new MongoClient(host, port);
