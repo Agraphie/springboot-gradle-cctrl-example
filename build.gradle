@@ -13,6 +13,7 @@ apply plugin: 'eclipse'
 apply plugin: 'spring-boot'
 apply plugin: 'application'
 
+mainClassName = "de.siobra.exampleapp.Application"
 sourceCompatibility = 1.7
 
 repositories {
