@@ -1,1 +1,1 @@
-web:  ./build/install/builddir/bin/springboot-gradle-cctrl-example
+web:  ./build/install/builddir/bin/builddir
