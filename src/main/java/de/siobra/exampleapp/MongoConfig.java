@@ -1,5 +1,8 @@
 package de.siobra.exampleapp;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
@@ -16,7 +19,8 @@ public class MongoConfig extends AbstractMongoConfiguration{
 	 @Value("27017") private int port;
 	 @Value("exampleDB") private String databaseName;
 	 @Value("${MONGOSOUP_URL:}") private String mongoURL;
-	 private String ccDBName; 
+	 private String ccDBName;
+	 private String test= "mongodb://tuOTCqVNyVgS:FdlcxulwDXFq@dbs004.mongosoup.de/cc_tuOTCqVNyVgS";
 
 	@Override
 	protected String getDatabaseName() {
@@ -31,9 +35,15 @@ public class MongoConfig extends AbstractMongoConfiguration{
 	public Mongo mongo() throws Exception {
 		if(mongoURL != null && !mongoURL.isEmpty()){
 			MongoClient mongoClient = new MongoClient(new MongoClientURI(mongoURL));
-			ccDBName = mongoClient.getDatabaseNames().get(0);
+			String s = "Last one: http://abc.imp/Basic2#URPlus1_S2_3,";
+			Matcher m = Pattern.compile("(cc_.*)").matcher(mongoURL);
+			if (m.find()) ccDBName = m.group(1);
+			
 			return mongoClient;
 		}
+		System.out.println(test.split(".*/cc_")[0]);
+		System.out.println(test.split(".*/cc_")[1]);
+
 	        return new MongoClient(host, port);
 	}
 
