@@ -1,1 +1,1 @@
-web:  ./build/install/springboot-gradle-cctrl-example/bin/springboot-gradle-cctrl-example
+web:  ./springboot-gradle-cctrl-example/build/install/springboot-gradle-cctrl-example/bin/springboot-gradle-cctrl-example
