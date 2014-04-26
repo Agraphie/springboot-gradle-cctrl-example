@@ -14,18 +14,22 @@ import com.mongodb.MongoClientURI;
 
 @Configuration
 @EnableMongoRepositories
-public class MongoConfig extends AbstractMongoConfiguration{
-	 @Value("localhost") private String host;
-	 @Value("27017") private int port;
-	 @Value("exampleDB") private String databaseName;
-	 @Value("${MONGOSOUP_URL:}") private String mongoURL;
-	 private String ccDBName;
-	 private String test= "mongodb://tuOTCqVNyVgS:FdlcxulwDXFq@dbs004.mongosoup.de/cc_tuOTCqVNyVgS";
+public class MongoConfig extends AbstractMongoConfiguration {
+	@Value("localhost")
+	private String host;
+	@Value("27017")
+	private int port;
+	@Value("exampleDB")
+	private String databaseName;
+	@Value("${MONGOSOUP_URL:}")
+	private String mongoURL;
+	
+	private String ccDBName;
 
 	@Override
 	protected String getDatabaseName() {
 		// TODO Auto-generated method stub
-		if(ccDBName != null) {
+		if (ccDBName != null) {
 			return ccDBName;
 		}
 		return databaseName;
@@ -33,18 +37,14 @@ public class MongoConfig extends AbstractMongoConfiguration{
 
 	@Override
 	public Mongo mongo() throws Exception {
-		if(mongoURL != null && !mongoURL.isEmpty()){
-			MongoClient mongoClient = new MongoClient(new MongoClientURI(mongoURL));
-			String s = "Last one: http://abc.imp/Basic2#URPlus1_S2_3,";
+		if (mongoURL != null && !mongoURL.isEmpty()) {
 			Matcher m = Pattern.compile("(cc_.*)").matcher(mongoURL);
-			if (m.find()) ccDBName = m.group(1);
-			
-			return mongoClient;
-		}
-		System.out.println(test.split(".*/cc_")[0]);
-		System.out.println(test.split(".*/cc_")[1]);
+			if (m.find())
+				ccDBName = m.group(1);
 
-	        return new MongoClient(host, port);
+			return new MongoClient(new MongoClientURI(mongoURL));
+		}
+		return new MongoClient(host, port);
 	}
 
 }

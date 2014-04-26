@@ -14,6 +14,7 @@ apply plugin: 'spring-boot'
 apply plugin: 'application'
 
 mainClassName = "de.siobra.exampleapp.Application"
+applicationName = "springboot-gradle-cctrl-example"
 sourceCompatibility = 1.7
 
 repositories {
@@ -31,4 +32,4 @@ task wrapper(type: Wrapper) {
     gradleVersion = '1.11'
 }
 
-task stage(dependsOn: ['clean', 'installApp']) {}
+task stage(dependsOn: ['clean', 'installApp'])
