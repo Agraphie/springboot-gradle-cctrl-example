@@ -26,7 +26,9 @@ public class MongoConfig extends AbstractMongoConfiguration{
 	@Override
 	public Mongo mongo() throws Exception {
 		if(mongoURL != null && !mongoURL.isEmpty()){
-			return new MongoClient(new MongoClientURI(mongoURL));
+			MongoClient mongoClient = new MongoClient(new MongoClientURI(mongoURL));
+			databaseName = mongoClient.getDatabaseNames().get(0);
+			return mongoClient;
 		}
 	        return new MongoClient(host, port);
 	}
