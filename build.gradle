@@ -11,14 +11,9 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'spring-boot'
+apply plugin: 'application'
 
 sourceCompatibility = 1.7
-version = '1.0'
-//jar {
-//    manifest {
-//        attributes 'Implementation-Title': 'Gradle Quickstart', 'Implementation-Version': version
-//    }
-//}
 
 repositories {
   mavenCentral()
@@ -34,3 +29,5 @@ dependencies {
 task wrapper(type: Wrapper) {
     gradleVersion = '1.11'
 }
+
+task stage(dependsOn: ['clean', 'installApp']) {}
