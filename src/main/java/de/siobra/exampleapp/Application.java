@@ -9,13 +9,12 @@ import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomi
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-import de.siobra.exampleapp.models.Person;
 import de.siobra.exampleapp.repositories.PersonRepository;
 
 @Configuration
 @ComponentScan
 @EnableAutoConfiguration
-public class Application implements CommandLineRunner, EmbeddedServletContainerCustomizer{
+public class Application implements EmbeddedServletContainerCustomizer{
 
 	@Autowired PersonRepository personRepository;
 	
@@ -31,10 +30,4 @@ public class Application implements CommandLineRunner, EmbeddedServletContainerC
         int portInt = Integer.valueOf(port);
         container.setPort(portInt);
     }
-
-	@Override
-	public void run(String... args) throws Exception {
-		Person person = new Person("Ronald", "Smith");
-		personRepository.save(person);
-	}
 }

@@ -15,8 +15,11 @@ public class HelloWorldController {
 	@RequestMapping("/person")
 	@ResponseBody
 	String showPerson() {
-		Person person = personRepository.findByLastName("Smith");
-		return "Firstname: " + person.getFirstName() + " Lastname: " + person.getLastName();
+		Person person = new Person("Ronald", "Smith");
+		personRepository.save(person);
+		
+		Person personFind = personRepository.findByLastName("Smith");
+		return "Firstname: " + personFind.getFirstName() + " Lastname: " + personFind.getLastName();
 	}
 
 	@RequestMapping("/hello")
