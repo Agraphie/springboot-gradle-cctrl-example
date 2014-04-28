@@ -38,6 +38,10 @@ public class MongoConfig extends AbstractMongoConfiguration {
 	@Override
 	public Mongo mongo() throws Exception {
 		if (mongoURL != null && !mongoURL.isEmpty()) {
+			//we need to find out the database name
+			//unfortunately MongoSoup stores everything in one big string so we have to search for
+			//our database name and extract it
+			//adjust if needed! Database name has to be set!
 			Matcher m = Pattern.compile("(cc_.*)").matcher(mongoURL);
 			if (m.find())
 				ccDBName = m.group(1);
