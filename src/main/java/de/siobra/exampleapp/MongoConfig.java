@@ -15,15 +15,12 @@ import com.mongodb.MongoClientURI;
 @Configuration
 @EnableMongoRepositories
 public class MongoConfig extends AbstractMongoConfiguration {
-	@Value("localhost")
-	private String host;
-	@Value("27017")
-	private int port;
-	@Value("exampleDB")
-	private String databaseName;
+	private String host = "localhost";
+	private int port = 27017;
+	private String databaseName = "exampleDB";
+	
 	@Value("${MONGOSOUP_URL:}")
 	private String mongoURL;
-	
 	private String ccDBName;
 
 	@Override
