@@ -27,7 +27,7 @@ cctrlapp APP_NAME create custom --buildpack https://github.com/Agraphie/buildpac
 
 Now add the MongoSoup addon to your repository (when in doubt about DEP_NAME, use "default").
 ```
-cctrlapp APP_NAME/DEP_NAME addon.add mongosoup.large
+cctrlapp APP_NAME/DEP_NAME addon.add mongosoup.sandbox
 ```
 
 Third push your app to cloudControl (when in doubt about DEP_NAME, use "default").

@@ -46,6 +46,7 @@ public class MongoConfig extends AbstractMongoConfiguration {
 			if (m.find())
 				ccDBName = m.group(1);
 
+			System.out.println("using database: " + mongoURL);
 			return new MongoClient(new MongoClientURI(mongoURL));
 		}
 		return new MongoClient(host, port);
