@@ -25,7 +25,6 @@ public class MongoConfig extends AbstractMongoConfiguration {
 
 	@Override
 	protected String getDatabaseName() {
-		// TODO Auto-generated method stub
 		if (ccDBName != null) {
 			return ccDBName;
 		}
@@ -47,5 +46,4 @@ public class MongoConfig extends AbstractMongoConfiguration {
 		}
 		return new MongoClient(host, port);
 	}
-
 }
