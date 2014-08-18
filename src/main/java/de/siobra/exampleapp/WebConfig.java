@@ -19,8 +19,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 			ContentNegotiationConfigurer configurer) {
 		// Simple strategy: only path extension is taken into account
 		configurer.favorPathExtension(true)
-				.ignoreAcceptHeader(false)
-				.useJaf(false).defaultContentType(MediaType.APPLICATION_JSON)
+				.ignoreAcceptHeader(true)
+				.useJaf(false)
 				.mediaType("html", MediaType.TEXT_HTML)
 				.mediaType("json", MediaType.APPLICATION_JSON);
 	}

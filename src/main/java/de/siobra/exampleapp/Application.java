@@ -6,11 +6,9 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 
 import de.siobra.exampleapp.repositories.PersonRepository;
 
-@Configuration
 @ComponentScan
 @EnableAutoConfiguration
 public class Application implements EmbeddedServletContainerCustomizer{
