@@ -8,6 +8,6 @@ import de.siobra.exampleapp.models.Person;
 
 public interface PersonRepository extends MongoRepository<Person, String> {
 	
-	public Person findByLastName(String lastName);
+	public List<Person> findByLastName(String lastName);
 	public List<Person> findByFirstName(String firstName);
 }
