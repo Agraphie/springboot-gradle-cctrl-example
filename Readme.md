@@ -22,7 +22,7 @@ To run this app simply type "./gradlew bootRun" or "gradlew.bat bootRun" in a sh
 ###Run this app on CloudControl
 First, create a repository.
 ```
-cctrlapp APP_NAME create custom --buildpack https://github.com/Agraphie/buildpack-gradle.git
+cctrlapp APP_NAME create java
 ```
 
 Now add the MongoSoup addon to your repository (when in doubt about DEP_NAME, use "default").
@@ -50,14 +50,22 @@ http://localhost:8080/hello
 ###Create a person
 Type in a browser window (if running on cloudControl, use your app's deployment URL)
 ```
-http://localhost:8080/newperson?lastName=alastname&firstName=afirstname
+http://localhost:8080/persons.html
 ```
 
 ###Display/find a person
 ```
-http://localhost:8080/showperson/alastname
+http://localhost:8080/persons/${alastname}
+```
+
+###Display all persons
+```
+http://localhost:8080/persons.json
 ```
 
 ###Credits
 - [cloudControl](https://www.cloudcontrol.com/dev-center/Quickstart)
-- [Spring Boot](http://projects.spring.io/spring-boot/)
+- [Springboot](http://projects.spring.io/spring-boot/)
+
+###License
+This project is released under the [MIT License](http://choosealicense.com/licenses/mit/). Be aware of the [Spring](https://spring.io/) licenses!
